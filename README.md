@@ -13,6 +13,12 @@ Services include:
 - Digital Marketing Strategy
 - Copywriting & Brand Voice
 
+## Work Showcase Note
+
+A number of the projects featured on this site are **concept demos** I built to demonstrate design quality, technical capability, and AI integration. A select few are real client projects that went live.
+
+I created the demos with genuine care and respect for the brands they reference. If you are the owner of any of the businesses shown and would prefer a project removed or adjusted, just reach out — I’m happy to take it down or make changes without delay. No hard feelings, and I appreciate the understanding.
+
 ## Live Site
 
 Open `index.html` in a browser, or deploy to any static host (Vercel, Netlify, GitHub Pages, etc.).

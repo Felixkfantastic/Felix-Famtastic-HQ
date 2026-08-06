@@ -7,7 +7,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-81CX4057CH');
 </script>
 <meta charset="UTF-8">
@@ -85,37 +84,6 @@
 </script>
 
 <style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "House of Kerin",
-  "image": "https://yoursite.com/logo.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kampala",
-    "addressCountry": "UG"
-  },
-  "telephone": "+256...",
-  "priceRange": "$$",
-  "url": "https://yoursite.com"
-}
-</script><script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "House of Kerin",
-  "image": "https://yoursite.com/logo.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kampala",
-    "addressCountry": "UG"
-  },
-  "telephone": "+256...",
-  "priceRange": "$$",
-  "url": "https://yoursite.com"
-}
-</script>
   :root{
     --forest:#0E2F24;
     --forest-2:#153A2C;
@@ -163,10 +131,10 @@
 
   /* NAV */
   nav{position:sticky;top:0;z-index:50;background:rgba(14,47,36,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dark);}
-  nav .wrap{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;color:var(--ivory);}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;color:var(--ivory);position:relative;}
   .brand{font-family:'Fraunces';font-style:italic;font-weight:600;font-size:1.2rem;}
   .brand small{display:block;font-family:'Manrope';font-style:normal;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-soft);margin-top:2px;}
-  .navlinks{display:flex;gap:32px;font-size:0.9rem;}
+  .navlinks{display:flex;gap:32px;font-size:0.9rem;align-items:center;}
   .navlinks a{text-decoration:none;opacity:0.82;position:relative;padding-bottom:3px;}
   .navlinks a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .25s ease;}
   .navlinks a:hover::after{width:100%;}
@@ -182,21 +150,39 @@
   .btn-line{border-color:var(--line-dark);color:var(--ivory);}
   .btn-line-light{border-color:var(--line-light);color:var(--ink);}
 
-  /* HERO */
-  .hero{padding:110px 0 90px;}
-  .hero-grid{display:grid;grid-template-columns:1.3fr 0.7fr;gap:60px;align-items:center;}
-  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} .hero-seal{order:-1;display:flex;justify-content:center;margin-bottom:10px;} }
-  .hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:600;line-height:1.12;}
-  .hero h1 em{font-style:italic;color:var(--gold-soft);}
-  .hero p.lead{margin-top:24px;font-size:1.08rem;color:var(--sage);max-width:520px;}
-  .hero-ctas{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;}
-  .seal-caption{text-align:center;font-size:0.74rem;color:var(--gold-soft);letter-spacing:0.06em;margin-top:14px;font-family:'Manrope';}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;color:var(--ivory);padding:4px;}
+  @media (max-width:760px){ .menu-btn{display:block;} }
+  .mobile-menu{display:none;position:absolute;top:64px;left:16px;right:16px;background:rgba(21,58,44,0.98);backdrop-filter:blur(12px);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.35);padding:22px;z-index:60;border:1px solid var(--line-dark);}
+  .mobile-menu.open{display:flex;flex-direction:column;gap:18px;}
+  .mobile-menu a{color:var(--ivory);text-decoration:none;font-size:0.98rem;}
+  .mobile-menu .btn{text-align:center;margin-top:4px;}
+
+  /* HERO — video background */
+  .hero{position:relative;height:100vh;min-height:640px;overflow:hidden;background:var(--forest);}
+  .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.85;}
+  .hero-overlay{position:absolute;inset:0;z-index:1;
+    background:
+      radial-gradient(60% 50% at 50% 42%, rgba(198,161,91,0.16) 0%, rgba(198,161,91,0) 70%),
+      linear-gradient(180deg, rgba(14,47,36,0.78) 0%, rgba(14,47,36,0.48) 45%, rgba(14,47,36,0.88) 100%);}
+  .hero-inner{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;margin-top:-40px;}
+  .hero-content{text-align:center;padding:0 24px;max-width:760px;}
+  .hero-content .kicker{justify-content:center;}
+  .hero h1{font-weight:400;font-size:clamp(2.6rem,7vw,6rem);line-height:0.96;margin:6px 0 0;}
+  .hero h1 .line1{color:var(--sage);display:block;font-style:italic;}
+  .hero h1 .line2{color:var(--gold);display:block;margin-top:-10px;font-weight:600;font-style:normal;}
+  .hero .lead{font-size:clamp(1rem,2vw,1.2rem);color:var(--sage);margin:26px auto 0;max-width:34rem;line-height:1.6;}
+  .hero-ctas{display:flex;gap:16px;justify-content:center;margin-top:34px;flex-wrap:wrap;}
+  .hero-ctas .btn{border-radius:999px;padding:13px 28px;}
 
   /* SERVICES */
   .service-row{
     display:flex;justify-content:space-between;align-items:baseline;gap:24px;
-    padding:26px 0;border-top:1px solid var(--line-light);
+    padding:26px 4px;border-top:1px solid var(--line-light);position:relative;
+    transition:padding-left .25s ease;
   }
+  .service-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);transition:width .25s ease;}
+  .service-row:hover{padding-left:20px;}
+  .service-row:hover::before{width:4px;}
   .service-row:last-child{border-bottom:1px solid var(--line-light);}
   .service-row h3{font-size:1.2rem;font-weight:600;}
   .service-row p{margin-top:6px;font-size:0.94rem;color:#5b5b52;max-width:520px;}
@@ -208,13 +194,14 @@
   .work-item:nth-child(even) .work-plate{order:2;}
   @media (max-width:800px){ .work-item{grid-template-columns:1fr;gap:20px;} .work-item:nth-child(even) .work-plate{order:0;} }
   .work-plate{
-    aspect-ratio:16/10;border-radius:2px;
+    aspect-ratio:16/10;border-radius:2px;overflow:hidden;
     background:linear-gradient(150deg, var(--forest-3), var(--forest-2));
     border:1px solid var(--line-dark);
-    display:flex;align-items:center;justify-content:center;position:relative;
+    position:relative;transition:border-color .3s ease;
   }
-  .work-plate::before{content:'';position:absolute;inset:10px;border:1px solid rgba(198,161,91,0.35);}
-  .work-plate span{font-family:'Manrope';font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-soft);}
+  .work-plate img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+  .work-item:hover .work-plate{border-color:rgba(198,161,91,0.55);}
+  .work-item:hover .work-plate img{transform:scale(1.035);}
   .work-tag{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;}
   .work-item h3{font-size:1.5rem;margin-top:10px;font-weight:600;}
   .work-item p{margin-top:12px;color:var(--sage);font-size:0.96rem;}
@@ -242,7 +229,8 @@
   /* RETAINERS */
   .retainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   @media (max-width:800px){ .retainer-grid{grid-template-columns:1fr;} }
-  .retainer-card{border:1px solid var(--line-dark);padding:30px 26px;}
+  .retainer-card{border:1px solid var(--line-dark);padding:30px 26px;transition:border-color .25s ease;}
+  .retainer-card:hover{border-color:rgba(198,161,91,0.5);}
   .retainer-card h3{font-size:1.05rem;font-weight:600;color:var(--gold-soft);}
   .retainer-card .amt{font-family:'Fraunces';font-size:1.6rem;margin:12px 0 16px;}
   .retainer-card p{font-size:0.9rem;color:var(--sage);}
@@ -259,8 +247,9 @@
   .contact-inner p{margin-top:18px;color:var(--sage);font-size:1.02rem;}
   .contact-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:34px;}
 
-  footer{background:var(--forest);color:var(--sage);padding:36px 0;border-top:1px solid var(--line-dark);}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.82rem;}
+  footer{background:var(--forest);color:var(--sage);padding:40px 0;border-top:1px solid var(--line-dark);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:0.82rem;}
+  .footer-seal{width:34px;height:34px;flex-shrink:0;}
 </style>
 </head>
 <body>
@@ -273,32 +262,35 @@
       <a href="#work">Work</a>
       <a href="#pricing">Pricing</a>
       <a href="#retainers">Retainers</a>
+      <a class="btn btn-gold" href="#contact">Book a free audit</a>
     </div>
-    <a class="btn btn-gold" href="#contact">Book a free audit</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#retainers">Retainers</a>
+      <a class="btn btn-gold" href="#contact">Book a free audit</a>
+    </div>
   </div>
 </nav>
 
-<header class="dark hero">
-  <div class="wrap hero-grid">
-    <div>
+<header class="hero">
+ <video autoplay muted loop playsinline>
+  <source src="assets/Video.mp4" type="video/mp4">
+</video>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
       <div class="kicker">Kampala · East Africa</div>
-      <h1>Websites and AI tools your business can actually be <em>proud</em> of.</h1>
-      <p class="lead">Felix Fantastic Digital Consultancy designs premium websites, AI concierge chatbots, and SEO strategy for East African businesses — built with the same care whether you're launching your first page or your fifteenth.</p>
+      <h1>
+        <span class="line1">Premium.</span>
+        <span class="line2">Attainable.</span>
+      </h1>
+      <p class="lead">Websites, AI concierge chatbots, and SEO strategy for East African businesses — built with the same care whether it's your first page or your fifteenth.</p>
       <div class="hero-ctas">
-        <a class="btn btn-gold" href="#contact">Book a free audit</a>
         <a class="btn btn-line" href="#work">See the work</a>
-      </div>
-    </div>
-    <div class="hero-seal">
-      <div>
-        <svg viewBox="0 0 140 140" width="180" height="180" aria-hidden="true">
-          <circle cx="70" cy="70" r="60" fill="none" stroke="#C6A15B" stroke-width="1.2"/>
-          <circle cx="70" cy="70" r="50" fill="none" stroke="#C6A15B" stroke-width="0.6"/>
-          <text x="70" y="86" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="46" fill="#C6A15B">FF</text>
-          <circle cx="70" cy="14" r="1.6" fill="#C6A15B"/>
-          <circle cx="70" cy="126" r="1.6" fill="#C6A15B"/>
-        </svg>
-        <div class="seal-caption">Every project, personally overseen</div>
+        <a class="btn btn-gold" href="#contact">Book a free audit</a>
       </div>
     </div>
   </div>
@@ -355,12 +347,12 @@
     </div>
 
     <div class="work-item reveal">
-     <div class="work-plate"><img src="images/zaragarden.png" alt="Zara Garden Hotel screenshot"></div>
+      <div class="work-plate"><img src="images/zaragarden.png" alt="Zara Garden Hotel screenshot"></div>
       <div>
         <div class="work-tag">Concept demo</div>
         <h3>Zara Garden Hotel</h3>
         <p>Full hotel site and AI concierge, built as a competition-level pitch asset for a Kampala hospitality brand.</p>
-        <a class="work-link" href="https://zara-garden-demo.vercel.app/" target="_blank" rel="noopener"> View live →</a>
+        <a class="work-link" href="https://zara-garden-demo.vercel.app/" target="_blank" rel="noopener">View live →</a>
       </div>
     </div>
 
@@ -383,15 +375,14 @@
         <a class="work-link" href="https://regency-redesign.vercel.app/" target="_blank" rel="noopener">View live →</a>
       </div>
     </div>
-  </div>
 
-  <div class="work-item reveal">
+    <div class="work-item reveal">
       <div class="work-plate"><img src="images/ruhanbeauty.png" alt="Ruhan Beauty World"></div>
       <div>
         <div class="work-tag">Concept demo</div>
         <h3>Ruhan Beauty World</h3>
         <p>Full e-commerce catalogue for a Kampala skincare and wellness supplement brand, with category filters and a sticky product search built for a large product range.</p>
-        <a class="work-link" href="https://rehan-demo.vercel.app/" target="_blank" rel="noopener">View live</a>
+        <a class="work-link" href="https://rehan-demo.vercel.app/" target="_blank" rel="noopener">View live →</a>
       </div>
     </div>
 
@@ -401,7 +392,7 @@
         <div class="work-tag">Client project</div>
         <h3>House of Kerin</h3>
         <p>Luxury handbag and perfume brand site in brown and gold, built around the client's own crest — WhatsApp-only ordering, no cart needed.</p>
-        <a class="work-link" href="https://house-of-kerin.vercel.app/" target="_blank" rel="noopener">View live</a>
+        <a class="work-link" href="https://house-of-kerin.vercel.app/" target="_blank" rel="noopener">View live →</a>
       </div>
     </div>
   </div>
@@ -511,12 +502,32 @@
 
 <footer>
   <div class="wrap">
-    <div>© 2026 Felix Fantastic Digital Consultancy — Kampala, Uganda</div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <svg class="footer-seal" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="70" cy="70" r="60" fill="none" stroke="#C6A15B" stroke-width="1.2"/>
+        <circle cx="70" cy="70" r="50" fill="none" stroke="#C6A15B" stroke-width="0.6"/>
+        <text x="70" y="86" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="46" fill="#C6A15B">FF</text>
+      </svg>
+      <div>© 2026 Felix Fantastic Digital Consultancy — Kampala, Uganda</div>
+    </div>
     <div>felixfantastic630@gmail.com · +256 748 495 608</div>
   </div>
 </footer>
 
 <script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuBtn.textContent = isOpen ? '✕' : '☰';
+    menuBtn.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    menuBtn.textContent = '☰';
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });

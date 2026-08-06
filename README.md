@@ -28,6 +28,7 @@ Open `index.html` in a browser, or deploy to any static host (Vercel, Netlify, G
 ```
 ├── index.html          # Main website
 ├── images/             # Project screenshots & assets
+├── assets/             # Video and other media
 └── README.md
 ```
 
